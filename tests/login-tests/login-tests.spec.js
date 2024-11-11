@@ -2,16 +2,29 @@
 const { test, expect } = require("@playwright/test");
 
 //1. Create a new test case- To test the login functionality of the application - Happy Flow
-test("Login Test", async ({ page }) => {
-  //Opening the login page
-  //Fill in  the username field
-  //Fill in the password field
-  //Clicking the login button
-  //Assert that the login was successful
+test("Test that user can successfully log in", async ({ page }) => {
+  test("Login Test", async ({ page }) => {
+    //Opening the login page
+    await page.goto("");
+
+    //Fill in  the username field
+    await page.getByPlaceholder("").fill("");
+
+    //Fill in the password field
+    await page.locator("").fill("");
+
+    //Click the login button
+    await page.getByRole().click();
+
+    //Assert that the login was successful -
+    await expect(page.locator("")).toHaveText("Welcome, Denise!");
+  });
 });
 
-//2. Create test case for Wrong Passwords
-test("Login Test - Wrong Password", async ({ page }) => {
+//2. Create test case for when a users try to login with the incorrect password
+test("Test that a user with a incorrect password cannot log in", async ({
+  page,
+}) => {
   //Opening the login page
   //Fill in  the username field
   //Fill in the password field
@@ -19,6 +32,4 @@ test("Login Test - Wrong Password", async ({ page }) => {
   //Asset that the user could not login and the correct message is displayed
 });
 
-//3. Create test case for No username - Check required field validation
-
-//4. Create test case for Log out test
+//3. Third Test Case - Any ideas??
