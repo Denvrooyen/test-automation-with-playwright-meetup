@@ -3,3 +3,5 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+tests/login-tests/login-tests-next-meetup-pageobject.js
+pages/loginPage.model.js
